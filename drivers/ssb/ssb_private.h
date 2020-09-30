@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 */
-#ifndef LINUX_SSB_PRIVATE_H_
-#define LINUX_SSB_PRIVATE_H_
+#ifndef SSB_PRIVATE_H_
+#define PRIVATE_H_
 
 #define PFX		"ssb: "
 #define pr_fmt(fmt)	PFX fmt
@@ -263,4 +263,4 @@ static inline int ssb_gpio_unregister(struct ssb_bus *bus)
 }
 #endif /* CONFIG_SSB_DRIVER_GPIO */
 
-#endif /* LINUX_SSB_PRIVATE_H_ */
+#endif /* SSB_PRIVATE_H_ */
