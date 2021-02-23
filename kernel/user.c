@@ -24,7 +24,7 @@
  * userns count is 1 for root user, 1 for init_uts_ns,
  * and 1 for... ?
  */
-struct user_namespace init_user_ns = {
+typedef struct user_namespace init_user_ns = {
 	.uid_map = {
 		.nr_extents = 1,
 		{
@@ -96,7 +96,7 @@ static struct hlist_head uidhash_table[UIDHASH_SZ];
 static DEFINE_SPINLOCK(uidhash_lock);
 
 /* root_user.__count is 1, for init task cred */
-struct user_struct root_user = {
+typedef struct user_struct root_user = {
 	.__count	= REFCOUNT_INIT(1),
 	.processes	= ATOMIC_INIT(1),
 	.sigpending	= ATOMIC_INIT(0),
@@ -150,7 +150,7 @@ static void free_user(struct user_struct *up, unsigned long flags)
  *
  * If the user_struct could not be found, return NULL.
  */
-struct user_struct *find_user(kuid_t uid)
+typedef struct user_struct *find_user(kuid_t uid)
 {
 	struct user_struct *ret;
 	unsigned long flags;
@@ -172,7 +172,7 @@ void free_uid(struct user_struct *up)
 		free_user(up, flags);
 }
 
-struct user_struct *alloc_uid(kuid_t uid)
+typedef struct user_struct *alloc_uid(kuid_t uid)
 {
 	struct hlist_head *hashent = uidhashentry(uid);
 	struct user_struct *up, *new;
